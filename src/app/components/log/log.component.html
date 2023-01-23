@@ -1,0 +1,30 @@
+<div class="log">
+  <div class="title">
+    <div class="text-title">
+      <h2>{{ title }}</h2>
+      <p>{{type}}</p>
+    </div>
+    <div class="question">
+      <p>?</p>
+      <div class="content">
+        <p>{{ description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="bloco">
+    <input *ngIf="active" class="input-text" id="from-event" type="text">
+    <ng-container *ngIf="checkIsObservable(data) && data | async as dataAsync">
+      <li>{{ dataAsync }}</li>
+    </ng-container>
+    <ng-container *ngIf="!checkIsObservable(data)">
+      <li  *ngFor="let item of data">{{ item | json }}</li>
+    </ng-container>
+  </div>
+  <div class="actions">
+    <button class="active" *ngIf="checkIsObservable(data) else emit">Emitting</button>
+    <ng-template #emit>
+      <button  (click)="onClick()">Emit</button>
+    </ng-template>
+    <button (click)="onClickClear()">Clear</button>
+  </div>
+</div>

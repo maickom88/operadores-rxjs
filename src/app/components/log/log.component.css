@@ -1,7 +1,5 @@
 .content{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     gap: 2rem;
 }
 .log{
@@ -112,4 +110,8 @@
     color: white;
     outline: none;
     border-radius: 0.2rem;
+}
+.text-title p {
+    color: #ffffff44;
+    font-size: 0.9rem;
 }
